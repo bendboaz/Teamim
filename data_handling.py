@@ -28,6 +28,11 @@ def convert_word_to_signs(word):
         signs.append(SIGN2IDX[LEGARMEI])
         total_duplications_found += 1
 
+    # More exceptions to take care of:
+    # - When Pashta appear twice, the first appearance is Kadma
+    # - When Zarka appears twice, it does so as two different signs
+    # - Generalize the above two cases together with the Munach + Paseq case.
+    # - Collapse the two signs for Geresh (11 + 12) into a single one.
 
     LOGGER.info(f'Replaced {total_duplications_found} signs (double or special cases).')
 
